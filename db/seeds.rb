@@ -5,11 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-(1..10).each do |i|
-   email = "example-#{i+1}@example.com"
-  User.create!(email: email, challenge_id: 1, password: "password", password_confirmation: "password")
-end
-
 
 challenge_array = [
   "Draw a self portrait",
@@ -33,11 +28,19 @@ challenge_array = [
   "Bake a cake",
   "Write a letter to yourself, in an envelope addressed to 1 year from now",
   "Try a food you've never tasted before",
-  
+
 ]
 
 challenge_array.each do |ch|
   Challenge.create(description: ch)
 end
+
+
+(1..3).each do |i|
+   email = "example-#{i+1}@example.com"
+  User.create!(email: email, challenge_id: 1, password: "password", password_confirmation: "password")
+end
+
+
 
 User.set_challenge
