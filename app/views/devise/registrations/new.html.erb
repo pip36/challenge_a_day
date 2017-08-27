@@ -10,6 +10,8 @@
     <%= f.email_field :email, autofocus: true, class: "form-control-lg" %>
   </div>
 
+  <%= f.hidden_field :challenge_id, value: 1 %>
+
   <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
