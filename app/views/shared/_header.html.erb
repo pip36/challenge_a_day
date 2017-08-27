@@ -1,0 +1,28 @@
+<% if !user_signed_in? %>
+
+<ul class="nav justify-content-center">
+  <li class="page-title">
+    <h1> <%= @title %> </h1>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Sign In", new_user_session_url %>
+  </li>
+</ul>
+
+
+
+
+<% else %>
+  <ul class="nav justify-content-center">
+    <li class="page-title">
+      <h1> <%= @title %> </h1>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Log Out", destroy_user_session_url, method: :delete %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "View Stats", stats_url %>
+    </li>
+  </ul>
+
+<% end %>

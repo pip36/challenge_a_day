@@ -1,0 +1,30 @@
+
+<div class="container central-content">
+
+<% if !user_signed_in? %>
+  <h1> Accept the Challenge? </h1>
+
+  </br>
+  <%= link_to "Create an Account", new_user_registration_url, class: "btn btn-lg btn-secondary" %>
+<% else %>
+  <% if current_user.challenge != nil %>
+
+    <% if current_user.has_completed_challenge?(current_user.challenge.id) %>
+      <h3> Challenge Done! </h3>
+      <h4> Come back tomorrow for a new one. </h4>
+      <%= image_tag "tick.png" %>
+    <% else %>
+      <h3> <%= current_user.challenge.description %> </h3>
+
+      <%= form_for Status.new do |f| %>
+        <%= f.hidden_field :passed, value: true %>
+        <%= f.hidden_field :difficulty, value: 1 %>
+        <%= f.submit "Done!", class: "btn btn-lg btn-secondary"%>
+      <% end %>
+    <% end %>
+
+
+  <% end %>
+<% end %>
+
+</div>

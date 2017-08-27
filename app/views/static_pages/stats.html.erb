@@ -1,0 +1,15 @@
+
+
+
+<h1> Stats </h1>
+<%= link_to "go back", root_url %>
+<h4> <%= "Total Challenges Completed: #{@completed_challenges.count}" %> </h4>
+<ul>
+<% @completed_challenges.each do |challenge| %>
+  <li>
+    <h4><%= "Challenge #{challenge.id}" %></h4> </br>
+    <%= "#{challenge.description}" %> <br>
+    <%= "Completed on: #{@statuses.find_by(challenge_id: challenge.id).complete_date.to_formatted_s(:long_ordinal)}" %>
+  </li>
+<% end %>
+</ul>
