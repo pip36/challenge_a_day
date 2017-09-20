@@ -6,5 +6,6 @@ A little app where you can sign up and get given a daily challenge to complete. 
 
 These credentials can log in.
 
-**Usename:** example@example.com
+**Username:** example@example.com
+
 **Password:** password
